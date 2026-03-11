@@ -7,6 +7,7 @@ A Python-based Voice Assistant that listens to your voice commands and performs 
 This project demonstrates how to build a basic voice assistant using Python and popular libraries such as SpeechRecognition, pyttsx3, and pyjokes.
 It can listen, recognize speech, and respond intelligently.
 
+
 🎯 Ideal for:
 
 Python beginners 🐍
@@ -24,8 +25,8 @@ Building AI-based projects 🤖
 ✅ Plays your favourite song 🎶
 ✅ Simple & beginner-friendly code 🧠
 
-🛠️ Technologies Used
 
+🛠️ Technologies Used
 Python 3.10+ 🐍
 
 SpeechRecognition – for recognizing voice
@@ -35,6 +36,7 @@ pyttsx3 – for text-to-speech
 pyjokes – for jokes 😄
 
 pyaudio – for microphone access
+
 
 📦 Required Python Packages
 
@@ -65,7 +67,7 @@ voice Assistant/
 │
 ├── main.py        # Main voice assistant code
 ├── README.md      # Project documentation
-└── .git/          # Git repository files
+└── .git/          
 
 ▶️ How to Run the Project
 
