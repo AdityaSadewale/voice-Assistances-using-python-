@@ -9,7 +9,6 @@ It can listen, recognize speech, and respond intelligently.
 
 
 🎯 Ideal for:
-
 Python beginners 🐍
 
 Learning speech recognition 🎧
