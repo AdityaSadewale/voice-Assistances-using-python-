@@ -1,11 +1,11 @@
 # 🎙️ Voice Assistant Using Python 🤖
 
-<p align="center">
+<!-- <p align="center">
   <img src="https://img.shields.io/badge/Python-3.10+-blue?style=for-the-badge&logo=python&logoColor=white" alt="Python Version">
   <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License">
   <img src="https://img.shields.io/github/stars/AdityaSadewale/voice-Assistances-using-python-?style=for-the-badge" alt="Stars">
   <img src="https://img.shields.io/github/forks/AdityaSadewale/voice-Assistances-using-python-?style=for-the-badge" alt="Forks">
-</p>
+</p> -->
 
 A Python-based Voice Assistant that listens to your voice commands and performs useful tasks like telling jokes, opening applications, playing songs, and more—just like your own mini Jarvis!
 
