@@ -29,8 +29,7 @@ def speechx(x):
     engine.setProperty('rate',160)
     engine.say(x)
     engine.runAndWait()
-
-
+    
 if __name__ == '__main__':
 
   #if sptext().lower() == "hay aj ":
