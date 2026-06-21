@@ -11,6 +11,7 @@ A Python-based Voice Assistant that listens to your voice commands and performs 
 
 ---
 
+
 ## 🚀 Project Overview
 
 This project demonstrates how to build a basic, interactive voice assistant using Python and popular speech libraries. It leverages offline text-to-speech synthesis and online speech recognition to deliver a seamless hands-free experience.
