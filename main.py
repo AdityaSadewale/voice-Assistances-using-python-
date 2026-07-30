@@ -6,6 +6,7 @@ import pyjokes
 import os
 
 
+
 def sptext():
     recognizer=sr.Recognizer()
     with sr.Microphone() as source:
