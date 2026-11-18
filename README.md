@@ -7,6 +7,7 @@
   <img src="https://img.shields.io/github/forks/AdityaSadewale/voice-Assistances-using-python-?style=for-the-badge" alt="Forks">
 </p> -->
 
+
 A Python-based Voice Assistant that listens to your voice commands and performs useful tasks like telling jokes, opening applications, playing songs, and more—just like your own mini Jarvis!
 
 ---
