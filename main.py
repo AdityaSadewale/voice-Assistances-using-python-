@@ -1,77 +1,135 @@
+
 import pyttsx3
 import speech_recognition as sr
 import webbrowser
 import datetime
 import pyjokes
-import os
 
-def sptext():
-    recognizer=sr.Recognizer()
-    with sr.Microphone() as source:
-        print("Listening...")
-        recognizer.adjust_for_ambient_noise(source)
-        audio =recognizer.listen(source)
-        try:
-            print("Recognizing...")
-            data = recognizer.recognize_google(audio)
-            print(data)
-            return data
 
-        except sr.UnknownValueError:
-            return ""
-            print("Not Understanding ")
-
-def speechx(x):
+# Text to Speech
+def speechx(text):
     engine = pyttsx3.init()
     voices = engine.getProperty('voices')
-    engine.setProperty('voice',voices[0].id)
-    rete =engine.getProperty('rate')
-    engine.setProperty('rate',160)
-    engine.say(x)
+
+    engine.setProperty('voice', voices[0].id)
+    engine.setProperty('rate', 160)
+
+    engine.say(text)
     engine.runAndWait()
-    
+
+
+# Speech to Text
+def sptext():
+    recognizer = sr.Recognizer()
+
+    try:
+        with sr.Microphone() as source:
+            print("Listening...")
+            recognizer.adjust_for_ambient_noise(source, duration=1)
+
+            audio = recognizer.listen(source, timeout=5, phrase_time_limit=8)
+
+            print("Recognizing...")
+
+            data = recognizer.recognize_google(audio)
+            print("You said:", data)
+
+            return data.lower()
+
+    except sr.UnknownValueError:
+        print("Sorry, I could not understand.")
+        return ""
+
+    except sr.RequestError:
+        print("Internet connection or speech service error.")
+        return ""
+
+    except sr.WaitTimeoutError:
+        print("Listening timed out.")
+        return ""
+
+    except OSError:
+        print("Microphone not found.")
+        return ""
+
+
+# Main Program
 if __name__ == '__main__':
 
-  #if sptext().lower() == "hay aj ":
-     while True:
-        data1=sptext().lower()
+    speechx("Hello, I am AJ. How can I help you?")
 
+    while True:
+
+        data1 = sptext()
+
+        if not data1:
+            continue
+
+        # Assistant Name
         if "your name" in data1:
-            name = "may name is aj"
-            speechx(name)
+            speechx("My name is AJ.")
 
+        # Assistant Age
         elif "old are you" in data1:
-             age = "i am just 22 years old"
-             speechx(age)
-        elif 'time' in data1:
-             time = datetime.datetime.now().strftime("%I%M%p")
-             speechx(time)
+            speechx("I am just 22 years old.")
 
-        elif 'youtube' in data1:
-             webbrowser.open("https://www.youtube.com/")
-             
-        elif 'whatsapp' in data1:
-             webbrowser.open("https://web.whatsapp.com/")
+        # Current Time
+        elif "time" in data1:
+            time = datetime.datetime.now().strftime("%I:%M %p")
+            speechx("The current time is " + time)
 
-        elif 'chatgpt' in data1:
-             webbrowser.open("https://chatgpt.com/")
-        
-        elif 'song' in data1:
-             webbrowser.open("https://www.youtube.com/watch?v=fFLWgtL9OAI&list=RDfFLWgtL9OAI&start_radio=1")
-            
-        elif 'joke' in data1:
-             joke_1 = pyjokes.get_joke(language="en",category="neutral")
-             print(joke_1)
-             speechx(joke_1)
+        # Current Date
+        elif "date" in data1:
+            date = datetime.datetime.now().strftime("%d %B %Y")
+            speechx("Today's date is " + date)
 
-        elif "exit" in data1:
-             speechx("thank you  have a good day, by love you.")
-             break
+        # Open YouTube
+        elif "youtube" in data1:
+            speechx("Opening YouTube.")
+            webbrowser.open("https://www.youtube.com/")
 
+        # Open WhatsApp
+        elif "whatsapp" in data1:
+            speechx("Opening WhatsApp.")
+            webbrowser.open("https://web.whatsapp.com/")
+
+        # Open ChatGPT
+        elif "chatgpt" in data1:
+            speechx("Opening ChatGPT.")
+            webbrowser.open("https://chatgpt.com/")
+
+        # Play Song
+        elif "song" in data1 or "music" in data1:
+            speechx("Playing your favourite song.")
+            webbrowser.open(
+                "https://www.youtube.com/watch?v=fFLWgtL9OAI"
+            )
+
+        # Tell a Joke
+        elif "joke" in data1:
+            joke = pyjokes.get_joke(
+                language="en",
+                category="neutral"
+            )
+            print("AJ:", joke)
+            speechx(joke)
+
+        # Open Google
+        elif "google" in data1:
+            speechx("Opening Google.")
+            webbrowser.open("https://www.google.com/")
+
+        # Open Instagram
+        elif "instagram" in data1:
+            speechx("Opening Instagram.")
+            webbrowser.open("https://www.instagram.com/")
+
+        # Exit Assistant
+        elif "exit" in data1 or "stop" in data1 or "bye" in data1:
+            speechx("Thank you. Have a good day. Bye bye!")
+            break
+
+        # Unknown Command
         else:
-          print("thank You have a good day, by love you. ")
-
-
-
-
-
+            print("Sorry, I don't understand that command.")
+            speechx("Sorry, I don't understand that command.")
